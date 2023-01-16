@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!--Patrícia Albuquerque-->
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Produto</title>
+    <link href=".../static/estilo.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+    {% for itens in resultado %}
+
+        <div>
+           <img src="{{ itens.imageUrl }}" width="35%"> 
+        </div>
+
+        <div>{{ itens.nome }}</div>
+        <div>{{ itens.unityPrice }}</div>
+        <div>{{ itens.autor }}</div>
+        <div>{{ itens.createDate }}</div>
+        <div>{{ itens.descricao }}</div>
+
+    {% endfor %}
+</body>
+</html>

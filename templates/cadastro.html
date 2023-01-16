@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--Patrícia Albuquerque-->
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link href="static/estilo.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav>
+        <a href="produtos"><button class="bot">Todos os produtos</button></a>|
+        <a href="/"><button class="bot">Página inicial</button></a>
+      </nav>
+    <div id="container">
+        <form method="POST" action="/cadastrar">
+            <div>
+                <label>Nome do produto:</label></br>
+                <input name="nome" required autofocus>
+            </div>
+            <div>
+                <label>Imagem do produto:</label></br>
+                <input name="imageUrl" required>
+            </div>
+            <div>
+                <label>Preço do produto:</label></br>
+                <input name="unityPrice" required>
+            </div>
+            <div>
+                <label>Autor do cadastro:</label></br>
+                <input name="autor" required>
+            </div>
+            <div>
+                <label>Descrição do produto:</label></br>
+                <input name="descricao" required>
+            </div>
+            <div>
+                <input type="hidden" name="showInHomePage" value="0" id="certo">
+                <input type="checkbox" name="showInHomePage" onchange="clicou()">
+                <label for="showInHomePage">Mostrar na página inicial?</label>
+            </div>
+            <div>
+                <button>Cadastrar</button>
+                <button type="reset">Redefinir</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="static/funcao.js"></script>
+</body>
+
+</html>

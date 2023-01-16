@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--Patrícia Albuquerque-->
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos</title>
+    <link href="static\estilo.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="direita">
+        <a href="cadastro"><button class="bot">Cadastro de produto</button></a>|
+        <a href="/"><button class="bot">Página inicial</button></a>
+      </nav>
+    <div id="search">
+        <form method="POST" action="/pesquisa">
+            <input type="search" name="pesquisa"> <button>Pesquisar</button>
+        </form>
+    </div>
+
+    <form action="/filtro" method="POST">
+        <input type="radio" name="filtro" value="0">
+        <label>Maior preço</label>
+        <input type="radio" name="filtro" value="1">
+        <label>Menor preço</label>
+        <input type="radio" name="filtro" value="2">
+        <label>Atual-Antigo</label>
+        <input type="radio" name="filtro" value="3">
+        <label>Antigo-Atual</label>
+        <button>filtrar</button>
+    </form>
+
+    <table>
+        <tr>
+            <th></th>
+            <th>Nome</th>
+            <th>Preço</th>
+            <th>Data de Cadastro</th>
+        </tr>
+        {% for itens in produtos %}
+        <tr>
+            <td><img src="{{itens.imageUrl}}" width="140px" id="image2"></td>
+            <td>{{itens.nome}}</td>
+            <td>R$ {{itens.unityPrice}}</td>
+            <td>{{itens.createDate}}</td>
+            <td>
+                <form method="POST" action="/indProd">
+                    <a target="_blank" href="{{ 'produto/' ~ itens.id }}">Clique aqui</a>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+
+            {% for itens in InPesquisa %}
+            <tr>
+                <td><img src="{{itens.imageUrl}}" width="140px" id="image2"></td>
+                <td>{{itens.nome}}</td>
+                <td>R$ {{itens.unityPrice}}</td>
+                <td>{{itens.createDate}}</td>
+                <td>{{ itens.autor }}</td>
+                <td>
+                    <form method="POST" action="/indProd">
+                        <a target="_blank" href="{{ 'produto/' ~ itens.id }}">Clique aqui</a>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+
+            {% for itens in filtroP %}
+            <tr>
+                <td><img src="{{itens.imageUrl}}" width="140px" id="image2"></td>
+                <td>{{itens.nome}}</td>
+                <td>R$ {{itens.unityPrice}}</td>
+                <td>{{itens.createDate}}</td>
+                <td>
+                    <form method="POST" action="/indProd">
+                        <a target="_blank" href="{{ 'produto/' ~ itens.id }}">Clique aqui</a>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+</body>
+
+</html>
